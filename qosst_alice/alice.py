@@ -137,8 +137,17 @@ class QOSSTAlice:
         """
         assert self.config is not None and self.config.alice is not None
         logger.info("Initializing hardware")
+
         logger.info("Opening DAC")
-        self.dac = self.config.alice.dac.device()
+
+        # Allow both signatures of the constructor of the DAC object to be used.
+        try:
+            self.dac = self.config.alice.dac.device()
+        except TypeError:
+            self.dac = self.config.alice.dac.device(
+                self.config.alice.dac.location,
+                self.config.alice.dac.channels
+            )
         self.dac.open()
         self.dac.set_emission_parameters(
             channels=self.config.alice.dac.channels,
