@@ -2,7 +2,7 @@
 
 The Digital Signal Processing (DSP) of Alice prepares the signal for its transmission in the physical domain.
 
-The protocol that was used to define our experiment is described here, and the DSP can then be described as the following tasks:
+The protocol that was used to define our experiment is described here, and the DSP then consists of the following tasks:
 
 * [Generation of symbols according to a modulation](#baseband);
 * [Upsampling](#upsample);
@@ -12,14 +12,14 @@ The protocol that was used to define our experiment is described here, and the D
 * [Synchronisation sequence](#zc);
 * [Padding of zeros](#zeros).
 
-In the following we describe each operation and show each function of the {py:mod}`qosst_alice.dsp` module can be used to make the DSP.
+In the following sections, we describe each operation and explain the functions within the {py:mod}`qosst_alice.dsp` module that can be used to perform the corresponding DSP steps.
 
 (baseband)=
 ## Generating the symbols and the baseband sequence
 
-First we need to generate the baseband sequence and for this we can use the {py:func}`qosst_alice.dsp.generate_baseband_sequence` function. For this we must at least give the modulation we want to use, the variance, the size of the modulation (for discrete modulations) and the number of symbols we want.
+First we need to generate the baseband sequence and for this we can use the {py:func}`qosst_alice.dsp.generate_baseband_sequence` function. For this we must at least specify the modulation we want to use, the variance, the size of the modulation (for discrete modulations) and the number of symbols to generate.
 
-There is a complete tutorial on the modulation on the `qosst-core` documentation, and here, for demonstrations purposes we will use a QPSK modulation (*i.e.* PSK modulation of size 4).
+There is a complete tutorial on the modulation in the `qosst-core` documentation, and here, for demonstration purposes we will use a QPSK modulation (*i.e.* PSK modulation of size 4).
 
 ```{eval-rst}
 .. plot:: pyplots/dsp/generate_baseband_sequence.py
@@ -34,7 +34,7 @@ The number of symbols is low, for demonstration purposes.
 (upsample)=
 ## Upsampling the data
 
-Next we upsample the data, the can be done with the {py:func}`qosst_alice.dsp.upsample` function. This is done because we are not sending the data at the same rate as the DAC. In practice we sent the data at a rate called the symbol rate {math}`R_S` and the rate of the DAC is {math}`f_{DAC}`. The *Samples-Per-Symbol* (SPS) is defined as the ratio
+Next we upsample the data, this can be done with the {py:func}`qosst_alice.dsp.upsample` function. This is done because we are not sending the data at the same rate as the DAC. In practice we send the data at a rate called the symbol rate {math}`R_S` and the rate of the DAC is {math}`f_{DAC}`. The *Samples-Per-Symbol* (SPS) is defined as the ratio
 
 ```{math}
 \text{SPS} = \frac{f_{DAC}}{R_S}
@@ -51,9 +51,9 @@ and also happen to be the upsampling factor. For instance, if we send our data a
 (rrc)=
 ## Applying filter
 
-The next step is to apply a filter. The module offers two function: {py:func}`qosst_alice.dsp.apply_rrc_filter` and {py:func}`qosst_alice.dsp.apply_rectangular_filter` but here we focus on the first, since it's more interesting for our scheme (and the one actually used).
+The next step is to apply a filter. The module provides two functions: {py:func}`qosst_alice.dsp.apply_rrc_filter` and {py:func}`qosst_alice.dsp.apply_rectangular_filter` but here we focus on the first, since it's more interesting for our scheme (and the one actually used).
 
-The Raised-Cosine (RC) filter  is a filter used for pulse-shaping that minimise inter-symbols interference. Its frequency response is defined as
+The Raised-Cosine (RC) filter is a filter used for pulse-shaping that minimise inter-symbols interference. Its frequency response is defined as
 
 ```{math}
 H_{RC}(f) = \begin{cases}
@@ -112,7 +112,7 @@ We increased the number of symbols to be able to see a nice PSD.
 (pilots)=
 ## Adding frequency multiplexing pilots
 
-We then add frequency multiplexing pilots (usually 2) which are complex exponential
+We then add frequency multiplexing pilots (usually 2) which are complex exponentials
 
 ```{math}
     pilot = \exp\left(2\pi i t f_{pilot}\right)
@@ -127,7 +127,7 @@ This can be done with the {py:func}`qosst_alice.dsp.add_frequency_multiplexed_pi
 ```
 
 ```{note}
-Please note that the values used for the ratio and power of pilots are not good and are only those one for demonstration purposes.
+Please note that the values used for the ratio and power of pilots are not optimal and are only chosen for demonstration purposes.
 ```
 
 (zc)=
@@ -150,7 +150,7 @@ This operation can be done with the `qosst_alice.dsp.add_zc` function.
 ```
 
 (zeros)=
-## Padding zeros
+## Zero padding
 
 Finally, in some cases we need to pad zeros at the beginning and end of the sequence. This can be done with the `qosst_alice.dsp.add_zeros` function.
 

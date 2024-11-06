@@ -1,6 +1,6 @@
 # Characterisation of the conversion factor
 
-The calibration part as Alice side is mainly composed by the calibration of the conversion factor. Indeed, the protocol requires to know the average number of photons per symbol {math}`\langle n \rangle` (or equivalently the modulation strength {math}`V_A=2\langle n \rangle`). This is usually done by monitoring the power using a monitoring photodiode. However this power does not directly correspond to the power at the output of Alice, since there is some attenuation between the monitoring photodiode and the output of Alice.
+The calibration part on Alice's side mainly consists in the calibration of the conversion factor. Indeed, the protocol requires to know the average number of photons per symbol {math}`\langle n \rangle` (or equivalently the modulation strength {math}`V_A=2\langle n \rangle`). This is usually done by monitoring the power using a monitoring photodiode. However this power does not directly correspond to the power at the output of Alice, since there is some attenuation between the monitoring photodiode and the output of Alice.
 
 This issue can be taken care of by calibrating a conversion factor between the monitoring photodiode and the output of Alice. By optically short-circuiting the IQ modulator, inputting moderate powers of light and adding a power meter at the output of Alice as shown in the figure below
 

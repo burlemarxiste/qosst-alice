@@ -4,9 +4,9 @@
 
 ### Operating System
 
-The QOSST suite does not required a particular software and should work on Windows (tested), Linux (tested) and Mac (not tested).
+The QOSST suite does not require a particular software and should work on Windows (tested), Linux (tested) and Mac (not tested).
 
-The actual operating system requirement will come down to the hardware used for the experiment since some of them don't have interfaces with Windows.
+The actual operating system requirement will come down to the hardware used for the experiment since some control or data acquisition devices might not be supported by Windows.
 
 ### Python version
 
@@ -31,14 +31,14 @@ Alternatively, you can clone the repository at [https://github.com/qosst/qosst-a
 
 ## Checking the version of the software
 
-`qosst-core` will be automatically installed as it is a dependency of `qosst-alice` provides the `qosst` command from which the whole documentation can be found {external+qosst-core:doc}`here <cli/documentation>`.
+`qosst-core` will be automatically installed as it is a dependency of `qosst-alice`. It provides the `qosst` command for which the whole documentation can be found {external+qosst-core:doc}`here <cli/documentation>`.
 
 You can check the version by issuing the command
 
 ```{command-output} qosst info
 ```
 
-If the `qosst` command was not installed in the path, it also possible to run the following command:
+If the `qosst` command was not installed in the path, it is also possible to run the following command:
 
 ```{prompt} bash
 python3 -m qosst_core.commands info
@@ -52,4 +52,4 @@ python3 -c "from qosst_core.infos import get_script_infos; print(get_script_info
 
 In the following we will assume that you have access to the qosst (and other) commands. If not you can replace the instructions similarly to above.
 
-If this works and have the newest versions, you should be ready to go !
+If this works and the newest version is installed, you should be ready to go!

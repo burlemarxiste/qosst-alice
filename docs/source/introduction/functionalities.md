@@ -4,7 +4,7 @@
 
 ## Digital Signal Processing
 
-The Digital Signal Processing of Alice generates the symbol and makes the operations to prepare for the physical transmission, in particular by upsampling it, filtering it and adding classical information such as phase and clock reference, and synchronisation sequence.
+The Digital Signal Processing of Alice generates the symbol sequence and performs all operations needed to prepare it for physical transmission, in particular by upsampling it, filtering it and adding classical information such as phase and clock reference, and synchronisation sequence.
 
 The behaviour of the DSP is described extensively [here](../understanding/dsp.md).
 

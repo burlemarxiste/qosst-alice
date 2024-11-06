@@ -74,7 +74,7 @@ Here is a picture of the proposed scheme for this experiment:
 :align: center
 ```
 
-Once the configuration is confirmed, the script will automatically change the value of the VOA, and record both optical powers to estimated the ratio. Please ensure that the value of the VOA and the power of the laser are compatible with both photodiodes.
+Once the configuration is confirmed, the script will automatically change the value of the VOA, and record both optical powers to estimate the ratio. Please ensure that the value of the VOA and the power of the laser are compatible with both photodiodes.
 
 ### characterize-voa
 

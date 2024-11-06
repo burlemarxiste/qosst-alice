@@ -6,7 +6,7 @@
 :align: center
 ```
 
-`qosst-alice` is the module that contained the DSP and server of Alice.
+`qosst-alice` is the module that contains the DSP and server of Alice.
 
 This project is part of [QOSST](https://github.com/qosst).
 
