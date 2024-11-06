@@ -29,12 +29,8 @@ from qosst_core.data import BaseQOSSTData
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_POWERMETER_1_CLASS: str = (
-    "qosst_hal.powermeter.FakePowerMeter"  #: Default value for the first powermeter class.
-)
-DEFAULT_POWERMETER_2_CLASS: str = (
-    "qosst_hal.powermeter.FakePowerMeter"  #: Default value for the second powermeter class.
-)
+DEFAULT_POWERMETER_1_CLASS: str = "qosst_hal.powermeter.FakePowerMeter"  #: Default value for the first powermeter class.
+DEFAULT_POWERMETER_2_CLASS: str = "qosst_hal.powermeter.FakePowerMeter"  #: Default value for the second powermeter class.
 DEFAULT_POWEMETER_1_LOCATION: str = (
     ""  #: Default value for the first powermeter location.
 )

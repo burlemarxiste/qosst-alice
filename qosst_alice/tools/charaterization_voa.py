@@ -241,9 +241,9 @@ def characterize_voa(args: argparse.Namespace):
 
     input_on_off = np.zeros(int(config.rate_on_off * config.duration_on_off))
     for i in range(config.samples_on_off):
-        input_on_off[config.samples_on_off + i :: 2 * config.samples_on_off] = (
-            config.value_on_off
-        )
+        input_on_off[
+            config.samples_on_off + i :: 2 * config.samples_on_off
+        ] = config.value_on_off
 
     dacadc.set_parameters(
         sample_rate=config.rate_on_off, number_of_samples=len(input_on_off)

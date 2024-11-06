@@ -145,8 +145,7 @@ class QOSSTAlice:
             self.dac = self.config.alice.dac.device()
         except TypeError:
             self.dac = self.config.alice.dac.device(
-                self.config.alice.dac.location,
-                self.config.alice.dac.channels
+                self.config.alice.dac.location, self.config.alice.dac.channels
             )
         self.dac.open()
         self.dac.set_emission_parameters(
